@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .spotify-button {
+    @apply bg-spotify-green hover:bg-spotify-green/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .spotify-card {
+    @apply bg-spotify-dark-base hover:bg-spotify-light-black transition-all duration-200 rounded-lg p-4;
+  }
+  
+  .spotify-input {
+    @apply bg-spotify-light-black text-white placeholder-gray-400 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-spotify-green;
+  }
+  
+  .roadmap-content {
+    @apply relative;
+  }
+  
+  .roadmap-content h1 {
+    @apply text-3xl font-bold mb-8 text-center;
+  }
+  
+  .roadmap-content h2 {
+    @apply text-2xl font-semibold mb-6 border-b pb-2;
+  }
+  
+  .roadmap-content h3 {
+    @apply text-xl font-medium mb-4;
+  }
+  
+  .roadmap-content ul {
+    @apply space-y-2 mb-6;
+  }
+  
+  .roadmap-content li {
+    @apply relative pl-6 before:content-['•'] before:absolute before:left-0 before:text-spotify-green;
+  }
+  
+  .roadmap-content code {
+    @apply bg-spotify-light-black text-spotify-green px-2 py-1 rounded text-sm;
+  }
+  
+  .roadmap-content blockquote {
+    @apply border-l-4 border-spotify-green pl-4 italic;
+  }
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Circular Std', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Improved text readability */
+  .dark {
+    color-scheme: dark;
+    background-color: theme('colors.spotify.black');
+    color: theme('colors.spotify.white-text');
+  }
+
+  /* Better focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-spotify-green ring-offset-2 dark:ring-offset-spotify-black;
+  }
+
+  /* Custom scrollbar for better visibility */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: theme('colors.spotify.lightest-black');
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.spotify.light-black');
+  }
+}
+
+/* Improved text selection */
+::selection {
+  @apply bg-spotify-green/20;
+}
